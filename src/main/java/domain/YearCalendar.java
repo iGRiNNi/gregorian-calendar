@@ -3,7 +3,6 @@ package domain;
 import domain.exception.InvalidYearCalendarException;
 
 import java.time.Year;
-import java.util.List;
 
 public record YearCalendar(Year year, CalendarTemplate template) {
 
@@ -18,7 +17,7 @@ public record YearCalendar(Year year, CalendarTemplate template) {
             throw new InvalidYearCalendarException("Calendar template must not be null");
         }
 
-        if (year.compareTo(MIN_YEAR) < 0) {
+        if (year.compareTo(MIN_YEAR) < 0 || year.compareTo(MIN_YEAR) == 0) {
             throw new InvalidYearCalendarException("Year must be greater than 1600");
         }
 
